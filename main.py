@@ -8,7 +8,7 @@ app = FastAPI()
 
 @app.get("/time", response_model=int)
 def get_time():
-    return int(time.time())
+    return 1
 
 
 @app.get("*", include_in_schema=False)

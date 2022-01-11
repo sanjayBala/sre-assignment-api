@@ -19,5 +19,13 @@ jobs:
         image: sanjaybalaji/my-api
         tags: $GITHUB_SHA
         registry: docker.io
-        username: sanjaybalaji
-        password: Pacman@123
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_PASSWORD }}
+    - name: Update deployment
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.SSH_HOST }}
+        username: ${{ secrets.SSH_USERNAME }}
+        password: ${{ secrets.SSH_PASSWORD }}
+        port: ${{ secrets.SSH_PORT }}
+        script: kubectl get nodes

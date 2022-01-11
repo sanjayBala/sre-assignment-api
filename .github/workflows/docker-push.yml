@@ -17,7 +17,7 @@ jobs:
     - name: Docker Build & Push Action
       uses: mr-smithers-excellent/docker-build-push@v5.6
       with:
-        image: my-api
-        # registry: docker.io
+        image: sanjaybalaji/my-api
+        registry: docker.io
         username: sanjaybalaji
         password: Pacman@123

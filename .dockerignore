@@ -1,0 +1,5 @@
+*.zip
+README.md
+.gitignore
+*.DS_Store
+_pycache_

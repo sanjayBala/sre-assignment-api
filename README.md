@@ -17,7 +17,7 @@ pip install -r requirements.txt
 To start the API, run the following command:
 
 ```console
-uvicorn main:app --reload --port 7777
+uvicorn main:app --reload --port 8080 --host 0.0.0.0
 ```
 
 ## Test

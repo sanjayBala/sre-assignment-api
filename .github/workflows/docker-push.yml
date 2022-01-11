@@ -9,6 +9,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env: 
+      IMAGE_TAG: $GITHUB_SHA
     steps:
     - uses: actions/checkout@v2
     # - name: Build the Docker image
@@ -17,7 +19,7 @@ jobs:
       uses: mr-smithers-excellent/docker-build-push@v5.6
       with:
         image: sanjaybalaji/my-api
-        tags: $GITHUB_SHA
+        tags: $IMAGE_TAG
         registry: docker.io
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_PASSWORD }}
@@ -28,4 +30,4 @@ jobs:
         username: ${{ secrets.SSH_USERNAME }}
         password: ${{ secrets.SSH_PASSWORD }}
         port: ${{ secrets.SSH_PORT }}
-        script: kubectl set image deployment/ha-api my-api=sanjaybalaji/my-api:$GITHUB_SHA
+        script: kubectl set image deployment/ha-api my-api=sanjaybalaji/my-api:$IMAGE_TAG

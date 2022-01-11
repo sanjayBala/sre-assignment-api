@@ -17,6 +17,7 @@ jobs:
       uses: mr-smithers-excellent/docker-build-push@v5.6
       with:
         image: sanjaybalaji/my-api
+        tag: ${BUILD_NUMBER}
         registry: docker.io
         username: sanjaybalaji
         password: Pacman@123
